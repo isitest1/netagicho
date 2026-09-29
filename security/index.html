@@ -5,123 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>セキュリティポリシー - ネタ帳</title>
   <meta name="description" content="ネタ帳のセキュリティポリシーとプライバシーに関する情報。">
+  <meta name="theme-color" content="#F1F0E8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161915" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6797323735">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
-      background: #FAF9F7;
-      color: #24211F;
-      line-height: 1.8;
-    }
-    header {
-      background: #E87835;
-      color: white;
-      padding: 48px 24px 40px;
-      text-align: center;
-    }
-    header a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 12px; }
-    header a:hover { color: white; }
-    header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
-    header p { font-size: 1rem; opacity: 0.9; }
-    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    .page { max-width: 820px; margin: 0 auto; padding: 56px 40px 96px; }
+    .page section { margin-bottom: 56px; }
+    .page h2 { font-size: clamp(22px, 3vw, 28px); color: var(--color-ink); margin-bottom: 16px; }
+    .page h3 { font-size: 17px; color: var(--color-ink); margin-bottom: 4px; }
+    .page p { color: var(--color-ink-sub); margin-bottom: 14px; }
+    .page strong { color: var(--color-ink); }
+    .page ul { margin: 10px 0 14px 22px; color: var(--color-ink-sub); }
+    .page ul li { margin-bottom: 6px; }
+
     .updated {
-      display: inline-block;
-      background: #FFF1E7;
-      color: #E87835;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 36px;
+      display: inline-block; background: var(--color-moss-soft); color: var(--color-moss);
+      font-size: 14px; font-weight: 700; padding: 5px 14px; border-radius: 999px; margin-bottom: 8px;
     }
-    section { margin-bottom: 48px; }
-    h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #24211F;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #E87835;
-    }
-    p { margin-bottom: 14px; color: #24211F; }
-    ul {
-      margin: 10px 0 14px 20px;
-      color: #24211F;
-    }
-    ul li { margin-bottom: 6px; }
     .highlight-box {
-      background: white;
-      border-left: 4px solid #E87835;
-      border-radius: 0 10px 10px 0;
-      padding: 18px 20px;
-      margin: 20px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: var(--color-paper); border-left: 4px solid var(--color-moss);
+      border-radius: 0 16px 16px 0; padding: 18px 22px; margin: 18px 0;
     }
-    .highlight-box p { margin: 0; font-weight: 500; }
-    .permission-card {
-      background: white;
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
+    .highlight-box p { margin: 0; color: var(--color-ink); font-weight: 700; }
+    .perm-card {
+      background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 16px;
+      padding: 18px 22px; margin-bottom: 12px;
     }
-    .permission-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-    .permission-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
-    .permission-card p { font-size: 0.88rem; color: #716B67; margin: 0; }
-    .contact-box {
-      background: white;
-      border-radius: 14px;
-      padding: 28px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    .perm-card p { font-size: 15px; color: var(--color-ink-sub); margin: 0; }
+    .note { font-size: 15px; color: var(--color-ink-mute); }
+    .contact-card {
+      background: var(--color-paper); border: 1px solid var(--color-line);
+      border-radius: var(--radius-card); padding: 32px; text-align: center;
     }
-    .contact-box a {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 12px 28px;
-      background: #E87835;
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact-box a:hover { opacity: 0.85; }
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      color: #716B67;
-      font-size: 0.88rem;
-      border-top: 1px solid #E9E5E1;
-    }
-    footer a { color: #E87835; text-decoration: none; }
   </style>
 </head>
 <body>
-<header>
-  <a href="../">← ネタ帳 トップへ</a>
-  <h1>セキュリティポリシー</h1>
-  <p>ネタ帳のセキュリティとプライバシーへの取り組み</p>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <img src="../images/app-icon.png" alt="ネタ帳 アプリアイコン">
+      <span>ネタ帳</span>
+    </a>
+    <nav class="header-nav">
+      <a class="textlink" href="/">トップ</a>
+      <a class="btn-fill" href="https://apps.apple.com/jp/app/id6797323735">App Storeで見る</a>
+    </nav>
+  </div>
 </header>
 
-<div class="container">
+<div class="page">
+  <p class="eyebrow">セキュリティポリシー</p>
+  <h2 style="font-size:clamp(28px,4vw,36px);letter-spacing:-0.01em;margin-bottom:12px;">セキュリティとプライバシーへの取り組み</h2>
   <span class="updated">最終更新：2026年8月3日</span>
 
-  <!-- 基本方針 -->
-  <section>
+  <section style="margin-top:32px;">
     <h2>基本方針</h2>
     <div class="highlight-box">
       <p>ネタ帳に保存されたデータは、すべてお使いの端末内にのみ保存されます。外部サーバーへの送信・収集は一切行いません。</p>
     </div>
-    <p>
-      ネタ帳は、利用者の個人情報・メモデータを収益目的で取り扱うことはありません。
-      アプリの主要機能はすべてオフライン（ネットワーク接続なし）で動作します。
-    </p>
+    <p>ネタ帳は、利用者の個人情報・メモデータを収益目的で取り扱うことはありません。アプリの主要機能はすべてオフライン（ネットワーク接続なし）で動作します。</p>
   </section>
 
-  <!-- データの保存場所 -->
   <section>
     <h2>データの保存と管理</h2>
     <p>ネタ帳が保存・処理するデータは以下のとおりです。</p>
@@ -131,13 +82,9 @@
       <li><strong>カテゴリ・状態・お気に入り</strong>：メモと同じく端末内に保存</li>
       <li><strong>作成日時・更新日時</strong>：端末内に保存</li>
     </ul>
-    <p>
-      これらのデータはiOSの標準バックアップ（iCloudバックアップ・iTunesバックアップ）の対象となります。
-      バックアップの管理はiOSおよびAppleの規約に従います。
-    </p>
+    <p>これらのデータはiOSの標準バックアップ（iCloudバックアップ・iTunesバックアップ）の対象となります。バックアップの管理はiOSおよびAppleの規約に従います。</p>
   </section>
 
-  <!-- 収集しない情報 -->
   <section>
     <h2>収集・送信しない情報</h2>
     <p>ネタ帳は以下の情報を収集・送信しません。</p>
@@ -152,71 +99,53 @@
     </ul>
   </section>
 
-  <!-- 権限 -->
   <section>
     <h2>アプリが要求する権限</h2>
     <p>ネタ帳が必要とする端末の権限は以下のみです。いずれも機能を使うときに初めて許可を求めます。</p>
-
-    <div class="permission-card">
-      <div class="permission-icon">📷</div>
-      <div>
-        <h3>写真ライブラリ（オプション）</h3>
-        <p>メモに写真を添付する場合にのみ使用します。選択した写真はアプリ内に保存されるだけで、外部に送信されません。</p>
-      </div>
+    <div class="perm-card">
+      <h3>写真ライブラリ（オプション）</h3>
+      <p>メモに写真を添付する場合にのみ使用します。選択した写真はアプリ内に保存されるだけで、外部に送信されません。</p>
     </div>
-
-    <div class="permission-card">
-      <div class="permission-icon">🎙️</div>
-      <div>
-        <h3>マイク・音声認識（オプション）</h3>
-        <p>音声入力機能を使う場合にのみ使用します。iOS標準の音声認識（Appleの音声認識API）を利用します。音声データの処理はAppleのポリシーに従います。</p>
-      </div>
+    <div class="perm-card">
+      <h3>マイク・音声認識（オプション）</h3>
+      <p>音声入力機能を使う場合にのみ使用します。iOS標準の音声認識（Appleの音声認識API）を利用します。音声データの処理はAppleのポリシーに従います。</p>
     </div>
-
-    <p style="margin-top:12px;font-size:0.9rem;color:#716B67;">
-      ※ 権限を許可しなくてもアプリの主要機能（テキストメモの記録・閲覧）は利用できます。
-    </p>
+    <p class="note" style="margin-top:12px;">※ 権限を許可しなくてもアプリの主要機能（テキストメモの記録・閲覧）は利用できます。</p>
   </section>
 
-  <!-- サードパーティ -->
   <section>
     <h2>サードパーティSDKの使用</h2>
-    <p>
-      現在のバージョンにおいて、サードパーティの分析SDK・広告SDK・クラッシュ収集SDKは一切使用していません。
-      アプリはAppleのフレームワーク（SwiftUI、SwiftData、PhotosUI等）のみを使用しています。
-    </p>
+    <p>現在のバージョンにおいて、サードパーティの分析SDK・広告SDK・クラッシュ収集SDKは一切使用していません。アプリはAppleのフレームワーク（SwiftUI、SwiftData、PhotosUI等）のみを使用しています。</p>
   </section>
 
-  <!-- セキュリティ上の問題の報告 -->
   <section>
     <h2>セキュリティ上の問題の報告</h2>
-    <p>
-      アプリにセキュリティ上の問題や脆弱性を発見した場合は、公開前にご連絡ください。
-      いただいた報告は迅速に調査し、必要に応じてアップデートで対応します。
-    </p>
-    <div class="contact-box">
-      <p>セキュリティに関する問い合わせ先</p>
-      <p style="color:#716B67;font-size:0.9rem;margin-top:6px;">件名に「ネタ帳 セキュリティ」と記載してください</p>
-      <a href="mailto:support@margheritaworks.com?subject=ネタ帳 セキュリティ報告">メールで報告する</a>
+    <p>アプリにセキュリティ上の問題や脆弱性を発見した場合は、公開前にご連絡ください。いただいた報告は迅速に調査し、必要に応じてアップデートで対応します。</p>
+    <div class="contact-card">
+      <p style="color:var(--color-ink);">セキュリティに関する問い合わせ先</p>
+      <p class="note">件名に「ネタ帳 セキュリティ」と記載してください</p>
+      <p><a class="btn-fill" href="mailto:support@margheritaworks.com?subject=ネタ帳 セキュリティ報告">メールで報告する</a></p>
     </div>
   </section>
 
-  <!-- 変更通知 -->
   <section>
     <h2>ポリシーの変更</h2>
-    <p>
-      このポリシーを変更する場合は、このページの「最終更新日」を更新します。
-      データの取り扱いに大きな変更がある場合（外部送信の追加など）は、アプリのアップデート説明でも告知します。
-    </p>
+    <p>このポリシーを変更する場合は、このページの「最終更新日」を更新します。データの取り扱いに大きな変更がある場合（外部送信の追加など）は、アプリのアップデート説明でも告知します。</p>
   </section>
-
 </div>
 
-<footer>
-  <p><a href="../">ネタ帳 トップ</a> &nbsp;|&nbsp; <a href="../support/">サポート・使い方</a></p>
-  <p style="margin-top:10px;">&copy; 2026 Margherita Works by Kohei Ishikawa. All rights reserved.</p>
-  <p style="margin-top:6px;"><a href="https://isitest1.github.io/portfolio-hub/ja">Kohei Ishikawa のポートフォリオを見る</a></p>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="/">トップ</a>
+      <a href="/support/">サポート・使い方</a>
+      <a href="/security/">セキュリティポリシー</a>
+    </div>
+    <p>&copy; 2026 Margherita Works by Kohei Ishikawa. All rights reserved.</p>
+    <p><a href="https://margheritaworks.com/ja">Kohei Ishikawa のポートフォリオを見る</a></p>
+  </div>
 </footer>
+
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "44e4ddc43bcf4f6493606249d09a01ba"}'></script>
 </body>
 </html>
